@@ -29,14 +29,15 @@ class VideoList extends Component {
     return (
       <div className='video-list'>
         <center>
-          <Link to='/record'>
-            <button className='btn new-btn'>create new</button>
-          </Link>
-          <br />
           <h2>your affirmations</h2>
           {this.state.videos && this.state.videos.map(function(video){
             return <Video key={video.token} singleVid={video} />
           })}
+          <br />
+          <Link to='/record'>
+            <button className='btn btn-primary'>create new</button>
+          </Link>
+          <br /><br />
         </center>
       </div>
     );
