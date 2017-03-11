@@ -7,7 +7,7 @@ import {
   Router,
   Route,
   browserHistory,
-  IndexRoute
+  IndexRedirect
   } from 'react-router';
 import store from './store';
 import {
@@ -38,10 +38,9 @@ ReactDOM.render(
   <Provider store={store}>
     <Router history={browserHistory}>
       <Route path="/" component={Main}>
-        <IndexRoute component={Login} />
-        <Route path="login" component={Login} />
-        <Route path="signup" component={Signup} />
+        <IndexRedirect to="/home" />
         <Route path="home" component={UserHome} />
+        <Route path="signup" component={Signup} />
         <Route path="record" component={Recorder} />
         <Route path="videos" component={VideoList} />
         <Route path="videos/:id" component={SingleVideo} />
