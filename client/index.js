@@ -49,6 +49,7 @@ ReactDOM.render(
         <Route path="videos/:id" component={SingleVideo} />
         <Route path="allplaylists" component={AllPlaylists} />
         <Route path="singleplaylist" component={SinglePlaylist} />
+        <Route path="tagged/:tag" component={VideoList} />
       </Route>
     </Router>
   </Provider>,
