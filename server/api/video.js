@@ -20,6 +20,7 @@ router.post('/', (req, res, next) => {
   .then(video => {
     if (req.body.tags) {
       let tags = req.body.tags.split(',');
+      tags = tags.map(tag => tag.trim()).filter(tag => (tag));
       tags = tags.map(tag => Tag.findOrCreate({where: {name: tag}}).then(tagThing => tagThing[0]));
       return Promise.all(tags)
       .then(allTags => video.setTags(allTags))
@@ -58,6 +59,7 @@ router.put('/:id', (req, res, next) => {
   .then(video => {
     if (req.body.tagList) {
       let tags = req.body.tagList.split(',');
+      tags = tags.map(tag => tag.trim()).filter(tag => (tag));
       tags = tags.map(tag => Tag.findOrCreate({where: {name: tag}}).then(tagThing => tagThing[0]));
       return Promise.all(tags)
       .then(allTags => video.setTags(allTags))
