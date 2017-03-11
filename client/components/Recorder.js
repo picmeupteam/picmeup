@@ -3,19 +3,44 @@ import React, { Component } from 'react';
 class Recorder extends Component {
     constructor() {
         super();
+
         this.state = {
+            recorded: true,
             videoToken: '',
-            recorded: false
+            videoTitle: '',
+            videoTags: ''
         };
+
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    // componentDidMount() {
-    //     // When the component is mounted, grab a reference and add a DOM listener;
-    //     ZiggeoApi.Events.on("submitted", function(data) {
-    //         this.videoToken = data.video.token,
-    //         this.setState({recorded: true});
-    //     })
-    // }
+    handleChange(field) {
+        return event => {
+            const value = event.target.value;
+
+            this.setState({
+                [`${field}`]: value
+            });
+        }
+    }
+
+    handleSubmit(event) {
+        event.preventDefault();
+        console.log('submit was submitted! hahaha', this.state);
+    }
+
+
+    componentDidMount() {
+        // Listens for video recording to finish
+        const self = this;
+        ZiggeoApi.Events.on("submitted", function(data) {
+            self.setState({
+                recorded: true,
+                videoToken: data.video.token
+            })
+        })
+    }
 
     render() {
         return (
@@ -27,7 +52,21 @@ class Recorder extends Component {
                 }
                 {this.state.recorded &&
                     <div>
-                        { ZiggeoApi.Videos.get(this.videoToken) }
+                        <form onSubmit={this.handleSubmit}>
+                            <label>
+                                Affirmation Video Title:
+                                    <input
+                                        type="text"
+                                        onChange={this.handleChange('videoTitle')}
+                                    />
+                                Affirmation Video Tags:
+                                    <input
+                                        type="text"
+                                        onChange={this.handleChange('videoTags')}
+                                    />
+                            </label>
+                            <input type="submit" value="Submit" />
+                        </form>
                     </div>
                 }
             </div>
