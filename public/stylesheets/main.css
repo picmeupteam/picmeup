@@ -1,13 +1,17 @@
+<<<<<<< HEAD
 .landing {
   display: flex;
   flex-direction: column;
 
 }
 
+=======
+>>>>>>> 9df0df29b9d5a6814b3ffa53bdd3fc385cca0556
 .video-list-item {
   height: 200px;
   width: 450px;
   padding: 5px;
+<<<<<<< HEAD
   margin: 5px;
   border: 2px solid black;
 }
@@ -24,3 +28,7 @@
   justify-content: space-between;
   width: 100px;
 }
+=======
+  border: 2px solid black;
+}
+>>>>>>> 9df0df29b9d5a6814b3ffa53bdd3fc385cca0556

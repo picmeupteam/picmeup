@@ -3,11 +3,26 @@ import './index.scss';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { Router, Route, browserHistory, IndexRoute } from 'react-router';
+import {
+  Router,
+  Route,
+  browserHistory,
+  IndexRoute
+  } from 'react-router';
 import store from './store';
-import { Main, Login, Signup, UserHome } from './components';
+import {
+  Main,
+  Login,
+  Signup,
+  UserHome
+} from './components';
+
 import Recorder from './components/Recorder';
 import VideoList from './components/VideoList';
+<<<<<<< HEAD
+=======
+
+>>>>>>> 9df0df29b9d5a6814b3ffa53bdd3fc385cca0556
 import { me } from './reducer/user';
 
 const whoAmI = store.dispatch(me());
