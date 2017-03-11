@@ -3,10 +3,23 @@ import './index.scss';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { Router, Route, browserHistory, IndexRoute } from 'react-router';
+import {
+  Router,
+  Route,
+  browserHistory,
+  IndexRoute
+  } from 'react-router';
 import store from './store';
-import { Main, Login, Signup, UserHome } from './components';
+import {
+  Main,
+  Login,
+  Signup,
+  UserHome
+} from './components';
+
 import Recorder from './components/Recorder';
+import VideoList from './components/VideoList';
+
 import { me } from './reducer/user';
 
 const whoAmI = store.dispatch(me());
@@ -32,6 +45,7 @@ ReactDOM.render(
           <Route path="home" component={UserHome} />
         </Route>
         <Route path="record" component={Recorder} />
+        <Route path="videos" component={VideoList} />
       </Route>
     </Router>
   </Provider>,
