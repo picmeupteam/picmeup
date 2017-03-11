@@ -107,13 +107,22 @@ class SingleVideo extends React.Component{
   render() {
     const video = this.state.video;
     const playlists = this.state.playlists;
+    if (video) ZiggeoApi.Embed.embed(`#video-${video.token}`,
+      {
+        width: 640,
+        height: 480,
+        responsive: false,
+        video: `${video.token}`
+      }
+    )
 
     return (video) ? (
       <div className="container">
         <h2>{video.title}</h2>
         <div className='video'>
-          *****this should be the actual video*****
+          {(video) ? <div id={`video-${video.token}`} /> : null}
         </div>
+        <br/>
         <div className='video-tags'>
           <div>
             <div style={{display: 'inline-block', marginRight: '3px'}}>
