@@ -2,8 +2,6 @@ const crypto = require('crypto');
 const Sequelize = require('sequelize');
 const db = require('../db');
 
-console.log('user is running!!!!!!')
-
 const setSaltAndPassword = user => {
   if (user.changed('password')) {
     user.salt = user.Model.generateSalt();

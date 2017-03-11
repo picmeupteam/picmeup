@@ -1,7 +1,5 @@
 const db = require('./')
 
-console.log()
-
 const seedUsers = () => db.Promise.map([
   {name: 'so many', email: 'god@example.com', password: '1234'},
   {name: 'Barack Obama', email: 'barack@example.gov', password: '1234'},

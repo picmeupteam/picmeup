@@ -1,11 +1,8 @@
-console.log('the ./db is running!!!!')
-
 const User = require('./user');
 const Video = require('./video');
 const Tag = require('./tag');
 const Playlist = require('./playlist');
 
-console.log(User)
 
 // Form the associations
 
