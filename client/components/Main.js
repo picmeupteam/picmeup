@@ -13,7 +13,8 @@ const Main = props => {
       background: '#21282F',
     },
     h4: {
-      color: '#EFB4A8'
+      color: '#EFB4A8',
+      textAlign: 'center'
     }
   }
 
@@ -21,9 +22,9 @@ const Main = props => {
     <div>
 
     <nav className="bar navbar navbar-default" style={styles.navbar}>
-      <div className="container-fluid">
+      <div className="container">
         <div className="navbar-header">
-          <Link to="/home"><h4 style={styles.h4}>PicMe♥p</h4></Link>
+          <Link to="/home"><h3 style={styles.h4}>PicMe♥p</h3></Link>
         </div>
       </div>
     </nav>

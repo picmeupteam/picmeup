@@ -63,8 +63,8 @@ class Recorder extends Component {
 
     render() {
         return (
-            <div>
-                <center>
+            <div className='container'>
+
                 {!this.state.recorded &&
                     <div>
                          <ziggeo></ziggeo>
@@ -89,7 +89,7 @@ class Recorder extends Component {
                         </form>
                     </div>
                 }
-                </center>
+
             </div>
         );
     }
