@@ -4583,27 +4583,6 @@ var logout = exports.logout = function logout() {
 };
 
 /***/ }),
-<<<<<<< HEAD
-=======
-/* 36 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Provider__ = __webpack_require__(265);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_connectAdvanced__ = __webpack_require__(114);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__connect_connect__ = __webpack_require__(266);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "Provider", function() { return __WEBPACK_IMPORTED_MODULE_0__components_Provider__["a"]; });
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "connectAdvanced", function() { return __WEBPACK_IMPORTED_MODULE_1__components_connectAdvanced__["a"]; });
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "connect", function() { return __WEBPACK_IMPORTED_MODULE_2__connect_connect__["a"]; });
-
-
-
-
-
-
-/***/ }),
->>>>>>> 9df0df29b9d5a6814b3ffa53bdd3fc385cca0556
 /* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -13817,11 +13796,8 @@ var _react2 = _interopRequireDefault(_react);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-<<<<<<< HEAD
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-=======
->>>>>>> 9df0df29b9d5a6814b3ffa53bdd3fc385cca0556
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -13837,7 +13813,6 @@ var Recorder = function (_Component) {
         var _this = _possibleConstructorReturn(this, (Recorder.__proto__ || Object.getPrototypeOf(Recorder)).call(this));
 
         _this.state = {
-<<<<<<< HEAD
             recorded: false,
             videoToken: '',
             videoTitle: '',
@@ -13879,23 +13854,6 @@ var Recorder = function (_Component) {
             });
         }
     }, {
-=======
-            videoToken: '',
-            recorded: false
-        };
-        return _this;
-    }
-
-    // componentDidMount() {
-    //     // When the component is mounted, grab a reference and add a DOM listener;
-    //     ZiggeoApi.Events.on("submitted", function(data) {
-    //         this.videoToken = data.video.token,
-    //         this.setState({recorded: true});
-    //     })
-    // }
-
-    _createClass(Recorder, [{
->>>>>>> 9df0df29b9d5a6814b3ffa53bdd3fc385cca0556
         key: 'render',
         value: function render() {
             return _react2.default.createElement(
@@ -13909,7 +13867,6 @@ var Recorder = function (_Component) {
                 this.state.recorded && _react2.default.createElement(
                     'div',
                     null,
-<<<<<<< HEAD
                     _react2.default.createElement(
                         'form',
                         { onSubmit: this.handleSubmit },
@@ -13929,9 +13886,6 @@ var Recorder = function (_Component) {
                         ),
                         _react2.default.createElement('input', { type: 'submit', value: 'Submit' })
                     )
-=======
-                    ZiggeoApi.Videos.get(this.videoToken)
->>>>>>> 9df0df29b9d5a6814b3ffa53bdd3fc385cca0556
                 )
             );
         }
@@ -13957,11 +13911,7 @@ var _react = __webpack_require__(4);
 
 var _react2 = _interopRequireDefault(_react);
 
-<<<<<<< HEAD
 var _reactRedux = __webpack_require__(29);
-=======
-var _reactRedux = __webpack_require__(36);
->>>>>>> 9df0df29b9d5a6814b3ffa53bdd3fc385cca0556
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -14000,11 +13950,7 @@ var Video = function Video(_ref) {
 
   return _react2.default.createElement(
     'div',
-<<<<<<< HEAD
     { className: 'video-list-item col-lg-4 col-sm-10' },
-=======
-    { className: 'video-list-item' },
->>>>>>> 9df0df29b9d5a6814b3ffa53bdd3fc385cca0556
     _react2.default.createElement(
       'h3',
       null,
@@ -25521,11 +25467,7 @@ var SyntheticMouseEvent = __webpack_require__(41);
 var SyntheticDragEvent = __webpack_require__(246);
 var SyntheticTouchEvent = __webpack_require__(250);
 var SyntheticTransitionEvent = __webpack_require__(251);
-<<<<<<< HEAD
 var SyntheticUIEvent = __webpack_require__(34);
-=======
-var SyntheticUIEvent = __webpack_require__(33);
->>>>>>> 9df0df29b9d5a6814b3ffa53bdd3fc385cca0556
 var SyntheticWheelEvent = __webpack_require__(252);
 
 var emptyFunction = __webpack_require__(12);
@@ -32105,11 +32047,7 @@ var _VideoList = __webpack_require__(134);
 
 var _VideoList2 = _interopRequireDefault(_VideoList);
 
-<<<<<<< HEAD
 var _user = __webpack_require__(36);
-=======
-var _user = __webpack_require__(35);
->>>>>>> 9df0df29b9d5a6814b3ffa53bdd3fc385cca0556
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 

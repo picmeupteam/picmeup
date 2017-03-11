@@ -19,10 +19,6 @@ import {
 
 import Recorder from './components/Recorder';
 import VideoList from './components/VideoList';
-<<<<<<< HEAD
-=======
-
->>>>>>> 9df0df29b9d5a6814b3ffa53bdd3fc385cca0556
 import { me } from './reducer/user';
 
 const whoAmI = store.dispatch(me());
