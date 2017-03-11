@@ -62,6 +62,7 @@ const Video = ({ singleVid }) => {
       <h3>{singleVid.title}</h3>
       <div id={`video-${singleVid.token}`} />
       <p>{tags}</p>
+      <Link to={`/videos/${singleVid.id}`}>Edit</Link>
       <br />
     </div>
   )
