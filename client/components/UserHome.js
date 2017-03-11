@@ -19,10 +19,14 @@ const UserHome = props => {
         <button type="button" className="btn btn-primary btn-lg">
           view all
         </button>
-      </Link>
       <Link to='/allplaylists'>
         <button type="button" className="btn btn-secondary btn-lg">
           playlists
+        </button>
+      </Link>
+      <Link to='/share'>
+        <button type="button" className="btn btn-primary btn-lg">
+          send encouragement
         </button>
       </Link>
     </div>

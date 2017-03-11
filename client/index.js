@@ -20,6 +20,7 @@ import {
 import Recorder from './components/Recorder';
 import VideoList from './components/VideoList';
 import SingleVideo from './components/SingleVideo';
+import ShareVideo from './components/ShareVideo';
 import AllPlaylists from './components/AllPlaylists';
 import SinglePlaylist from './components/SinglePlaylist';
 
@@ -47,6 +48,7 @@ ReactDOM.render(
         <Route path="record" component={Recorder} />
         <Route path="videos" component={VideoList} />
         <Route path="videos/:id" component={SingleVideo} />
+        <Route path="share" component={ShareVideo} />
         <Route path="allplaylists" component={AllPlaylists} />
         <Route path="singleplaylist" component={SinglePlaylist} />
         <Route path="tagged/:tag" component={VideoList} />
