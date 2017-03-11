@@ -20,9 +20,15 @@ router.post('/', (req, res, next) => {
   .catch(next);
 });
 
+router.get('/name/:name', (req, res, next) => {
+  Playlist.findOne({where: {name: req.params.name}, include: {model: Video, include: [Playlist, Tag]}})
+  .then(playlist => res.json(playlist))
+  .catch(next);
+});
+
 // gets one playlist with its videos
 router.get('/:id', (req, res, next) => {
-  Playlist.findOne({where: {id: req.params.id}, include: [Video]})
+  Playlist.findOne({where: {id: req.params.id}, include: {model: Video, include: [Playlist, Tag]}})
   .then(playlist => res.json(playlist))
   .catch(next);
 });
