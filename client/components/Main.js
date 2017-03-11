@@ -19,7 +19,8 @@ const Main = props => {
 
   return (
     <div>
-    <nav className="navbar navbar-default" style={styles.navbar}>
+
+    <nav className="bar navbar navbar-default" style={styles.navbar}>
       <div className="container-fluid">
         <div className="navbar-header">
           <Link to="/home"><h4 style={styles.h4}>PicMe♥p</h4></Link>
@@ -27,6 +28,7 @@ const Main = props => {
       </div>
     </nav>
     { children }
+
     </div>
   );
 };
