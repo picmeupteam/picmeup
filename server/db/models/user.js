@@ -2,6 +2,8 @@ const crypto = require('crypto');
 const Sequelize = require('sequelize');
 const db = require('../db');
 
+console.log('user is running!!!!!!')
+
 const setSaltAndPassword = user => {
   if (user.changed('password')) {
     user.salt = user.Model.generateSalt();
@@ -9,7 +11,7 @@ const setSaltAndPassword = user => {
   }
 }
 
-module.exports = db.define('user', {
+module.exports = db.define('users', {
   email: {
     type: Sequelize.STRING,
     unique: true,
