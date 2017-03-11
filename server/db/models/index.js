@@ -6,11 +6,11 @@ const Playlist = require('./playlist');
 
 // Form the associations
 
-Playlist.hasMany(Video);
-Video.hasMany(Tag);
+Playlist.belongsToMany(Video, {through: 'playlistVideos' });
+Video.belongsToMany(Tag, {through: 'videoTags' });
 
-Video.belongsToMany(Playlist, {through: 'playlistVideos'});
-Tag.belongsToMany(Video, {through: 'videoTags'});
+Video.belongsToMany(Playlist, {through: 'playlistVideos' });
+Tag.belongsToMany(Video, {through: 'videoTags' });
 
 
 // exported just in case, but can also be fetched via db.model('Video') etc.
