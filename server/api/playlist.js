@@ -15,8 +15,8 @@ router.get('/', (req, res, next) => {
 // assumes correct payload in req.body
 // payload can have {name: "string"}
 router.post('/', (req, res, next) => {
-  Playlist.create(req.body)
-  .then(playlist => res.json(playlist))
+  Playlist.findOrCreate({where: req.body})
+  .then(playlist => res.json(playlist[0]))
   .catch(next);
 });
 
