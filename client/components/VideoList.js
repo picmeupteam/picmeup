@@ -7,29 +7,42 @@ import { Link } from 'react-router'
 
 class VideoList extends Component {
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
-      videos: []
+      videos: [],
+      tag: props.routeParams.tag
     }
   }
 
   componentWillMount() {
     const self = this;
 
-    axios.get('/api/video')
+    if (this.state.tag) {
+      axios.get(`/api/tag/name/${this.state.tag}`)
     .then(returnedinfo => returnedinfo.data)
-    .then(function (allvideos) {
-      self.setState({ videos: allvideos })
+    .then(function (tag) {
+      console.log(tag.videos)
+      self.setState({ videos: tag.videos })
     })
+    }
+
+    else {
+      axios.get('/api/video')
+      .then(returnedinfo => returnedinfo.data)
+      .then(function (allvideos) {
+        self.setState({ videos: allvideos })
+      })
+    }
+
   }
 
   render() {
     return (
       <div className='video-list'>
         <center>
-          <h2>your affirmations</h2>
+          <h2>{(!this.state.tag) ? 'your affirmations' : `your affirmations tagged '${this.state.tag}'`}</h2>
           {this.state.videos && this.state.videos.map(function(video){
             return <Video key={video.token} singleVid={video} />
           })}
