@@ -1,65 +1,70 @@
-import React from 'react';
-import {connect} from 'react-redux'
-import {Link} from 'react-router'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import axios from 'axios';
+import { Link } from 'react-router'
 
-// dumb video list component that takes each video it gets and make a video component for it
+// Video list component that takes each video it gets and make a video component for it
 
-const VideoList = (props) => {
-  console.log(props)
-  return (
-    <div className='container'>
+class VideoList extends Component {
+
+  constructor() {
+    super();
+
+    this.state = {
+      videos: []
+    }
+  }
+
+  componentWillMount() {
+    const self = this;
+
+    axios.get('/api/video')
+    .then(returnedinfo => returnedinfo.data)
+    .then(function (allvideos) {
+      self.setState({ videos: allvideos })
+    })
+  }
+
+  render() {
+    return (
       <div className='video-list'>
-        <Link to='/record'>
-          <button className='btn new-btn btn-secondary'>
-            create new
-          </button>
-        </Link>
-        <h2>your affirmations</h2>
-        {props.videos && props.videos.map(function(video){
-          return <Video singleVid={video} />
-        })}
-
-        {/* some filler data */
-          props.dummydata && props.dummydata.map(function(fakevid){
-            console.log('there was dummy data')
-            return <Video singleVid={fakevid} />
+        <center>
+          <h2>your affirmations</h2>
+          {this.state.videos && this.state.videos.map(function(video){
+            return <Video key={video.token} singleVid={video} />
           })}
+          <br />
+          <Link to='/record'>
+            <button className='btn btn-primary'>create new</button>
+          </Link>
+          <br /><br />
+        </center>
       </div>
-    </div>
-  )
+    );
+  }
 }
 
 const Video = ({ singleVid }) => {
-  console.log('make some vid components')
+
+  ZiggeoApi.Embed.embed(
+    `#video-${singleVid.token}`, {
+      width: 640,
+      height: 480,
+      responsive: false,
+      video: `${singleVid.token}`
+    }
+  )
+
+  const tags = singleVid.tags.map(tag => tag.name).join(', ');
 
   return (
-    <div className='video-list-item col-lg-4 col-sm-10'>
+    <div>
       <h3>{singleVid.title}</h3>
-      <p> this is the token. {singleVid.token} </p>
-
-
-      <div className='video'>
-        this should be the actual video
-      </div>
+      <div id={`video-${singleVid.token}`} />
+      <p>{tags}</p>
+      <br />
     </div>
   )
 }
 
-const dummydata = [
-  {
-    title: 'first vid',
-    token: '435asdf',
-  },{
-    title: 'throw everyone in volcanoes',
-    token: 'fsdfg0983',
-  },{
-    title: 'youre the most magic person',
-    token: '39rufajo',
-  },
-]
-
-const mapState = (state) => {
-  return {dummydata}
-}
-
-export default connect(mapState)(VideoList);
+export default VideoList;
