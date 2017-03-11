@@ -1,60 +1,80 @@
-import React from 'react';
-import {connect} from 'react-redux'
+import React, { Component } from 'react';
+import {connect} from 'react-redux';
+import axios from 'axios';
 
-// dumb video list component that takes each video it gets and make a video component for it
+// Video list component that takes each video it gets and make a video component for it
 
-const VideoList = (props) => {
-  console.log(props)
-  return (
-    <div className='video-list'>
-      <button className='btn new-btn'>
-        create new
-      </button>
-      <h2>your affirmations</h2>
-      {props.videos && props.videos.map(function(video){
-        return <Video singleVid={video} />
-      })}
+class VideoList extends Component {
 
-      {/* some filler data */
-        props.dummydata && props.dummydata.map(function(fakevid){
-          console.log('there was dummy data')
-          return <Video singleVid={fakevid} />
-        })}
-    </div>
-  )
+  constructor() {
+    super();
+
+    this.state = {
+      videos: []
+    }
+  }
+
+  componentWillMount() {
+    const self = this;
+
+    axios.get('/api/video')
+    .then(returnedinfo => returnedinfo.data)
+    .then(function (allvideos) {
+      self.setState({ videos: allvideos })
+    })
+  }
+
+  render() {
+    return (
+      <div className='video-list'>
+        <center>
+          <button className='btn new-btn'>
+            create new
+          </button>
+          <h2>your affirmations</h2>
+          {this.state.videos && this.state.videos.map(function(video){
+            return <Video key={video.token} singleVid={video} />
+          })}
+        </center>
+      </div>
+    );
+  }
 }
+
+const styles = {
+  display: "inline-block"
+}
+
+// var embedding = ZiggeoApi.Embed.embed(
+//         "#replace_me", {
+//             width:640,
+//             height:480,
+//             video: "VIDEO_TOKEN"
+//     });
+
+const temp = [];
 
 const Video = ({ singleVid }) => {
-  console.log('make some vid components')
+
+  ZiggeoApi.Embed.embed(
+      `#video-${singleVid.token}`, {
+        width: 640,
+        height: 480,
+        responsive: false,
+        video: `${singleVid.token}`
+      })
 
   return (
-    <div className='video-list-item col-lg-4 col-sm-10'>
+    <div>
       <h3>{singleVid.title}</h3>
-      <p> this is the token. {singleVid.token} </p>
-
-
-      <div className='video'>
-        this should be the actual video
-      </div>
+      <div id={`video-${singleVid.token}`}></div>
+      <br />
     </div>
   )
 }
 
-const dummydata = [
-  {
-    title: 'first vid',
-    token: '435asdf',
-  },{
-    title: 'throw everyone in volcanoes',
-    token: 'fsdfg0983',
-  },{
-    title: 'youre the most magic person',
-    token: '39rufajo',
-  },
-]
+// <ziggeo
+//   ziggeo-video={singleVid.token}
+// />
 
-const mapState = (state) => {
-  return {dummydata}
-}
-
-export default connect(mapState)(VideoList);
+export default VideoList;
