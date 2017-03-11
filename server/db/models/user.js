@@ -9,7 +9,7 @@ const setSaltAndPassword = user => {
   }
 }
 
-module.exports = db.define('user', {
+module.exports = db.define('users', {
   email: {
     type: Sequelize.STRING,
     unique: true,

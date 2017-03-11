@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 
 class Recorder extends Component {
-    // constructor() {
-    //     super();
-    //     this.state = {
-    //         videoToken: '',
-    //         recorded: false
-    //     };
-    // }
+    constructor() {
+        super();
+        this.state = {
+            videoToken: '',
+            recorded: false
+        };
+    }
 
     // componentDidMount() {
     //     // When the component is mounted, grab a reference and add a DOM listener;
@@ -19,20 +19,20 @@ class Recorder extends Component {
 
     render() {
         return (
-           <div>hi</div>
+            <div>
+                {!this.state.recorded &&
+                    <div>
+                         <ziggeo></ziggeo>
+                    </div>
+                }
+                {this.state.recorded &&
+                    <div>
+                        { ZiggeoApi.Videos.get(this.videoToken) }
+                    </div>
+                }
+            </div>
         );
     }
 }
 
 export default Recorder;
-
- // {!recorded &&
- //                <div>
- //                    <ziggeo></ziggeo>
- //                </div>
- //            }
- //            {recorded &&
- //                <div>
- //                    { ZiggeoApi.Videos.get(this.videoToken) }
- //                </div>
- //            }
