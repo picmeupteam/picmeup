@@ -5,7 +5,7 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { Router, Route, browserHistory, IndexRoute } from 'react-router';
 import store from './store';
-import { Main, Login, Signup, UserHome } from './components';
+import { Main, Login, Signup, UserHome, Recorder } from './components';
 import { me } from './reducer/user';
 
 const whoAmI = store.dispatch(me());
@@ -30,6 +30,7 @@ ReactDOM.render(
         <Route onEnter={requireLogin}>
           <Route path="home" component={UserHome} />
         </Route>
+        <Route path="record" component={Recorder} />
       </Route>
     </Router>
   </Provider>,
