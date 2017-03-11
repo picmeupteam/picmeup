@@ -14908,7 +14908,7 @@ var Main = function Main(props) {
     _react2.default.createElement(
       'h1',
       null,
-      'BOILERMAKER'
+      'PIC ME UP'
     ),
     loggedIn ? _react2.default.createElement(
       'nav',
@@ -31814,6 +31814,10 @@ var _store2 = _interopRequireDefault(_store);
 
 var _components = __webpack_require__(133);
 
+var _Recorder = __webpack_require__(314);
+
+var _Recorder2 = _interopRequireDefault(_Recorder);
+
 var _user = __webpack_require__(35);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -31848,10 +31852,89 @@ _reactDom2.default.render(_react2.default.createElement(
         _reactRouter.Route,
         { onEnter: requireLogin },
         _react2.default.createElement(_reactRouter.Route, { path: 'home', component: _components.UserHome })
-      )
+      ),
+      _react2.default.createElement(_reactRouter.Route, { path: 'record', component: _Recorder2.default })
     )
   )
 ), document.getElementById('app'));
+
+/***/ }),
+/* 314 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(5);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Recorder = function (_Component) {
+    _inherits(Recorder, _Component);
+
+    function Recorder() {
+        _classCallCheck(this, Recorder);
+
+        return _possibleConstructorReturn(this, (Recorder.__proto__ || Object.getPrototypeOf(Recorder)).apply(this, arguments));
+    }
+
+    _createClass(Recorder, [{
+        key: 'render',
+
+        // constructor() {
+        //     super();
+        //     this.state = {
+        //         videoToken: '',
+        //         recorded: false
+        //     };
+        // }
+
+        // componentDidMount() {
+        //     // When the component is mounted, grab a reference and add a DOM listener;
+        //     ZiggeoApi.Events.on("submitted", function(data) {
+        //         this.videoToken = data.video.token,
+        //         this.setState({recorded: true});
+        //     })
+        // }
+
+        value: function render() {
+            return _react2.default.createElement(
+                'div',
+                null,
+                'hi'
+            );
+        }
+    }]);
+
+    return Recorder;
+}(_react.Component);
+
+exports.default = Recorder;
+
+// {!recorded &&
+//                <div>
+//                    <ziggeo></ziggeo>
+//                </div>
+//            }
+//            {recorded &&
+//                <div>
+//                    { ZiggeoApi.Videos.get(this.videoToken) }
+//                </div>
+//            }
 
 /***/ })
 /******/ ]);
