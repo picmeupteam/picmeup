@@ -31898,15 +31898,18 @@ var Recorder = function (_Component) {
         return _this;
     }
 
-    // componentDidMount() {
-    //     // When the component is mounted, grab a reference and add a DOM listener;
-    //     ZiggeoApi.Events.on("submitted", function(data) {
-    //         this.videoToken = data.video.token,
-    //         this.setState({recorded: true});
-    //     })
-    // }
-
     _createClass(Recorder, [{
+        key: 'componentDidMount',
+        value: function componentDidMount() {
+            // When the component is mounted, grab a reference and add a DOM listener;
+            console.log("outside handler");
+            var self = this;
+            ZiggeoApi.Events.on("submitted", function (data) {
+                console.log("inside");
+                self.videoToken = data.video.token, self.setState({ recorded: true });
+            });
+        }
+    }, {
         key: 'render',
         value: function render() {
             return _react2.default.createElement(
@@ -31917,11 +31920,7 @@ var Recorder = function (_Component) {
                     null,
                     _react2.default.createElement('ziggeo', null)
                 ),
-                this.state.recorded && _react2.default.createElement(
-                    'div',
-                    null,
-                    ZiggeoApi.Videos.get(this.videoToken)
-                )
+                this.state.recorded && _react2.default.createElement('div', null)
             );
         }
     }]);
