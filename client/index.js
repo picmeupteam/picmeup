@@ -21,6 +21,9 @@ import Recorder from './components/Recorder';
 import VideoList from './components/VideoList';
 import SingleVideo from './components/SingleVideo';
 import ShareVideo from './components/ShareVideo';
+import AllPlaylists from './components/AllPlaylists';
+import SinglePlaylist from './components/SinglePlaylist';
+
 import { me } from './reducer/user';
 
 // const whoAmI = store.dispatch(me());
@@ -46,6 +49,8 @@ ReactDOM.render(
         <Route path="videos" component={VideoList} />
         <Route path="videos/:id" component={SingleVideo} />
         <Route path="share" component={ShareVideo} />
+        <Route path="allplaylists" component={AllPlaylists} />
+        <Route path="singleplaylist" component={SinglePlaylist} />
         <Route path="tagged/:tag" component={VideoList} />
       </Route>
     </Router>
