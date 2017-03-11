@@ -109,8 +109,8 @@ class SingleVideo extends React.Component{
     const playlists = this.state.playlists;
 
     return (video) ? (
-      <div>
-        <h3>{video.title}</h3>
+      <div className="container">
+        <h2>{video.title}</h2>
         <div className='video'>
           *****this should be the actual video*****
         </div>
@@ -142,46 +142,58 @@ class SingleVideo extends React.Component{
             }
           </div>
           <div>
-            <div>
-              Change Video Title:
-              <form onSubmit={this.handleTitle}>
-                <input id='titleName'/>
-                <button>Change Title</button>
+            <div className="col-lg-4 col-md-6 col-sm-8">
+              <h5>Change Video Title:</h5>
+              <form onSubmit={this.handleTitle} className="input-group input-group-sm">
+                <input id='titleName' type="text" className="form-control"/>
+                <div className="input-group-btn">
+                  <button type="button" className="btn btn-primary">Change Title</button>
+                </div>
               </form>
-              Add to Existing Playlist:
-              <form onSubmit={this.handleAddToPlaylist}>
-                <select id='playlistName'>
+              <h5>Add to Existing Playlist:</h5>
+              <form onSubmit={this.handleAddToPlaylist} className="input-group input-group-sm">
+                <select id='playlistName' className="custom-select">
                   {playlists && playlists.map(playlist => <option key={playlist.id} value={playlist.id}>{playlist.name}</option>)}
                 </select>
-                <button>Add</button>
+                <div className="input-group-btn">
+                  <button type="button" className="btn btn-primary">Add</button>
+                </div>
               </form>
-              Add to New Playlist:
-              <form onSubmit={this.handleAddToNewPlaylist}>
-                <input id='newPlaylistName'/>
-                <button>Add</button>
+              <h5>Add to New Playlist:</h5>
+              <form onSubmit={this.handleAddToNewPlaylist} className="input-group input-group-sm">
+                <input id='newPlaylistName' type="text" className="form-control"/>
+                <div className="input-group-btn">
+                  <button type="button" className="btn btn-primary">Add</button>
+                </div>
               </form>
-              Remove from Playlist:
-              <form onSubmit={this.handleRemoveFromPlaylist}>
-                <select id='removePlaylistName'>
+              <h5>Remove from Playlist:</h5>
+              <form onSubmit={this.handleRemoveFromPlaylist} className="input-group input-group-sm">
+                <select id='removePlaylistName' className="custom-select">
                   {video && video.playlists.map(playlist => <option key={playlist.id} value={playlist.id}>{playlist.name}</option>)}
                 </select>
-                <button>Remove</button>
+                <div className="input-group-btn">
+                  <button type="button" className="btn btn-warning">Remove</button>
+                </div>
               </form>
-              Add Tag:
-              <form onSubmit={this.handleAddTag}>
-                <input id='newTagName'/>
-                <button>Add</button>
+              <h5>Add Tag:</h5>
+              <form onSubmit={this.handleAddTag} className="input-group input-group-sm">
+                <input id='newTagName' type="text" className="form-control"/>
+                <div className="input-group-btn">
+                  <button type="button" className="btn btn-primary">Add</button>
+                </div>
               </form>
-              Remove Tag:
-              <form onSubmit={this.handleRemoveTag}>
-                <select id='removeTagName'>
+              <h5>Remove Tag:</h5>
+              <form onSubmit={this.handleRemoveTag} className="input-group input-group-sm">
+                <select id='removeTagName' className="custom-select">
                   {video && video.tags.map(tag => <option key={tag.id} value={tag.id}>{tag.name}</option>)}
                 </select>
-                <button>Remove</button>
+                <div className="input-group-btn">
+                  <button type="button" className="btn btn-warning">Remove</button>
+                </div>
               </form>
-              Delete Video:
-              <form onSubmit={this.handleDelete}>
-                <button>Delete</button>
+              <h5>Delete Video:</h5>
+              <form onSubmit={this.handleDelete} className="input-group input-group-sm">
+                <button type="button" className="btn btn-danger">Delete</button>
               </form>
             </div>
           </div>
