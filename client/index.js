@@ -19,6 +19,7 @@ import {
 
 import Recorder from './components/Recorder';
 import VideoList from './components/VideoList';
+import SingleVideo from './components/SingleVideo';
 import { me } from './reducer/user';
 
 // const whoAmI = store.dispatch(me());
@@ -43,6 +44,7 @@ ReactDOM.render(
         <Route path="home" component={UserHome} />
         <Route path="record" component={Recorder} />
         <Route path="videos" component={VideoList} />
+        <Route path="videos/:id" component={SingleVideo} />
       </Route>
     </Router>
   </Provider>,

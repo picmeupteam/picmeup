@@ -14,8 +14,8 @@ router.get('/', (req, res, next) => {
 // assumes correct payload in req.body
 // payload can have {name: "string"}
 router.post('/', (req, res, next) => {
-  Tag.create(req.body)
-  .then(tag => res.json(tag))
+  Tag.findOrCreate({where: req.body})
+  .then(tag => res.json(tag[0]))
   .catch(next);
 });
 
