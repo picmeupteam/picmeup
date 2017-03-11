@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import axios from 'axios';
+import {browserHistory} from 'react-router';
+
 
 class Recorder extends Component {
     constructor() {
@@ -27,7 +30,23 @@ class Recorder extends Component {
 
     handleSubmit(event) {
         event.preventDefault();
-        console.log('submit was submitted! hahaha', this.state);
+
+        // console.log('submit was submitted! hahaha', this.state);
+
+        const vid = this.state;
+
+        axios.post('/api/video', {
+            token: vid.videoToken,
+            title: vid.videoTitle,
+            tags: vid.videoTags
+        })
+        .then(function (response) {
+            browserHistory.push('/videos');
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+
     }
 
 
@@ -54,12 +73,12 @@ class Recorder extends Component {
                     <div>
                         <form onSubmit={this.handleSubmit}>
                             <label>
-                                Affirmation Video Title:
+                                VIDEO TITLE:
                                     <input
                                         type="text"
                                         onChange={this.handleChange('videoTitle')}
                                     />
-                                Affirmation Video Tags:
+                                COMMA SEPARATED TAGS:
                                     <input
                                         type="text"
                                         onChange={this.handleChange('videoTags')}
