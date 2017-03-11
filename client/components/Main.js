@@ -6,25 +6,29 @@ import { logout } from '../reducer/user';
 const Main = props => {
 
   const { children, handleClick, user } = props;
-  const loggedIn = !!user.id;
+  // const loggedIn = !!user.id;
+
+  const styles = {
+    navbar: {
+      background: '#21282F',
+    },
+    h4: {
+      color: '#EFB4A8'
+    }
+  }
 
   return (
     <div>
-    <div className='bar'>
-      <h1>PIC ME UP</h1>
-      { loggedIn ?
-          <div className = 'bar-links'>
-            <Link to="/home">Home</Link>
-            <a href="" onClick={handleClick}>Logout</a>
-          </div> :
-          <div className = 'bar-links'>
-            <Link to="/login">Login</Link>
-            <Link to="/signup">Sign Up</Link>
-          </div>
-      }
-    </div>
-    <hr />
-      { children }
+
+    <nav className="bar navbar navbar-default" style={styles.navbar}>
+      <div className="container-fluid">
+        <div className="navbar-header">
+          <Link to="/home"><h4 style={styles.h4}>PicMe♥p</h4></Link>
+        </div>
+      </div>
+    </nav>
+    { children }
+
     </div>
   );
 };

@@ -21,16 +21,16 @@ import Recorder from './components/Recorder';
 import VideoList from './components/VideoList';
 import { me } from './reducer/user';
 
-const whoAmI = store.dispatch(me());
+// const whoAmI = store.dispatch(me());
 
-const requireLogin = (nextRouterState, replace, next) =>
-  whoAmI
-    .then(() => {
-      const { user } = store.getState();
-      if (!user.id) replace('/login');
-      next();
-    })
-    .catch(err => console.log(err));
+// const requireLogin = (nextRouterState, replace, next) =>
+//   whoAmI
+//     .then(() => {
+//       const { user } = store.getState();
+//       if (!user.id) replace('/login');
+//       next();
+//     })
+//     .catch(err => console.log(err));
 
 
 ReactDOM.render(
@@ -40,9 +40,7 @@ ReactDOM.render(
         <IndexRoute component={Login} />
         <Route path="login" component={Login} />
         <Route path="signup" component={Signup} />
-        <Route onEnter={requireLogin}>
-          <Route path="home" component={UserHome} />
-        </Route>
+        <Route path="home" component={UserHome} />
         <Route path="record" component={Recorder} />
         <Route path="videos" component={VideoList} />
       </Route>
