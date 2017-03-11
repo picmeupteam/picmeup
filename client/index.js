@@ -44,6 +44,7 @@ ReactDOM.render(
         <Route path="record" component={Recorder} />
         <Route path="videos" component={VideoList} />
         <Route path="videos/:id" component={SingleVideo} />
+        <Route path="tagged/:tag" component={VideoList} />
       </Route>
     </Router>
   </Provider>,
