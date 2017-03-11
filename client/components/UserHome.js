@@ -20,6 +20,11 @@ const UserHome = props => {
           view all
         </button>
       </Link>
+      <Link to='/share'>
+        <button type="button" className="btn btn-primary btn-lg">
+          send encouragement
+        </button>
+      </Link>
     </div>
   );
 }
