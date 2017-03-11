@@ -8,7 +8,7 @@ class Recorder extends Component {
         super();
 
         this.state = {
-            recorded: true,
+            recorded: false,
             videoToken: '',
             videoTitle: '',
             videoTags: ''
