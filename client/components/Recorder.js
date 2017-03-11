@@ -8,7 +8,7 @@ class Recorder extends Component {
         super();
 
         this.state = {
-            recorded: false,
+            recorded: true,
             videoToken: '',
             videoTitle: '',
             videoTags: ''
@@ -64,6 +64,7 @@ class Recorder extends Component {
     render() {
         return (
             <div>
+                <center>
                 {!this.state.recorded &&
                     <div>
                          <ziggeo></ziggeo>
@@ -77,17 +78,18 @@ class Recorder extends Component {
                                     <input
                                         type="text"
                                         onChange={this.handleChange('videoTitle')}
-                                    />
+                                    /><br/>
                                 COMMA SEPARATED TAGS:
                                     <input
                                         type="text"
                                         onChange={this.handleChange('videoTags')}
                                     />
                             </label>
-                            <input type="submit" value="Submit" />
+                            <input className="btn btn-default"type="submit" value="Submit" />
                         </form>
                     </div>
                 }
+                </center>
             </div>
         );
     }
