@@ -31925,8 +31925,8 @@ var Recorder = function (_Component) {
     }, {
         key: 'componentDidMount',
         value: function componentDidMount() {
-            // When the component is mounted, grab a reference and add a DOM listener;
-            console.log("outside handler");
+            // Listens for video recording to finish
+            var self = this;
             ZiggeoApi.Events.on("submitted", function (data) {
                 self.setState({
                     recorded: true,
