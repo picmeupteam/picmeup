@@ -13950,7 +13950,7 @@ var Video = function Video(_ref) {
 
   return _react2.default.createElement(
     'div',
-    { className: 'video-list-item' },
+    { className: 'video-list-item col-lg-4 col-sm-10' },
     _react2.default.createElement(
       'h3',
       null,
@@ -15117,35 +15117,39 @@ var Main = function Main(props) {
     'div',
     null,
     _react2.default.createElement(
-      'h1',
-      null,
-      'PIC ME UP'
-    ),
-    loggedIn ? _react2.default.createElement(
-      'nav',
-      null,
+      'div',
+      { className: 'bar' },
       _react2.default.createElement(
-        _reactRouter.Link,
-        { to: '/home' },
-        'Home'
+        'h1',
+        null,
+        'PIC ME UP'
       ),
-      _react2.default.createElement(
-        'a',
-        { href: '', onClick: handleClick },
-        'Logout'
-      )
-    ) : _react2.default.createElement(
-      'nav',
-      null,
-      _react2.default.createElement(
-        _reactRouter.Link,
-        { to: '/login' },
-        'Login'
-      ),
-      _react2.default.createElement(
-        _reactRouter.Link,
-        { to: '/signup' },
-        'Sign Up'
+      loggedIn ? _react2.default.createElement(
+        'div',
+        { className: 'bar-links' },
+        _react2.default.createElement(
+          _reactRouter.Link,
+          { to: '/home' },
+          'Home'
+        ),
+        _react2.default.createElement(
+          'a',
+          { href: '', onClick: handleClick },
+          'Logout'
+        )
+      ) : _react2.default.createElement(
+        'div',
+        { className: 'bar-links' },
+        _react2.default.createElement(
+          _reactRouter.Link,
+          { to: '/login' },
+          'Login'
+        ),
+        _react2.default.createElement(
+          _reactRouter.Link,
+          { to: '/signup' },
+          'Sign Up'
+        )
       )
     ),
     _react2.default.createElement('hr', null),

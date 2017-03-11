@@ -10,18 +10,20 @@ const Main = props => {
 
   return (
     <div>
+    <div className='bar'>
       <h1>PIC ME UP</h1>
       { loggedIn ?
-          <nav>
+          <div className = 'bar-links'>
             <Link to="/home">Home</Link>
             <a href="" onClick={handleClick}>Logout</a>
-          </nav> :
-          <nav>
+          </div> :
+          <div className = 'bar-links'>
             <Link to="/login">Login</Link>
             <Link to="/signup">Sign Up</Link>
-          </nav>
+          </div>
       }
-      <hr />
+    </div>
+    <hr />
       { children }
     </div>
   );

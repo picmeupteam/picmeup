@@ -28,7 +28,7 @@ const Video = ({ singleVid }) => {
   console.log('make some vid components')
 
   return (
-    <div className='video-list-item'>
+    <div className='video-list-item col-lg-4 col-sm-10'>
       <h3>{singleVid.title}</h3>
       <p> this is the token. {singleVid.token} </p>
 

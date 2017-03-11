@@ -2,5 +2,19 @@
   height: 200px;
   width: 450px;
   padding: 5px;
+  margin: 5px;
   border: 2px solid black;
+}
+
+.bar {
+  padding: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.bar-links {
+  display: flex;
+  justify-content: space-between;
+  width: 100px;
 }
