@@ -1,25 +1,30 @@
 import React from 'react';
 import {connect} from 'react-redux'
+import {Link} from 'react-router'
 
 // dumb video list component that takes each video it gets and make a video component for it
 
 const VideoList = (props) => {
   console.log(props)
   return (
-    <div className='video-list'>
-      <button className='btn new-btn'>
-        create new
-      </button>
-      <h2>your affirmations</h2>
-      {props.videos && props.videos.map(function(video){
-        return <Video singleVid={video} />
-      })}
-
-      {/* some filler data */
-        props.dummydata && props.dummydata.map(function(fakevid){
-          console.log('there was dummy data')
-          return <Video singleVid={fakevid} />
+    <div className='container'>
+      <div className='video-list'>
+        <Link to='/record'>
+          <button className='btn new-btn btn-secondary'>
+            create new
+          </button>
+        </Link>
+        <h2>your affirmations</h2>
+        {props.videos && props.videos.map(function(video){
+          return <Video singleVid={video} />
         })}
+
+        {/* some filler data */
+          props.dummydata && props.dummydata.map(function(fakevid){
+            console.log('there was dummy data')
+            return <Video singleVid={fakevid} />
+          })}
+      </div>
     </div>
   )
 }

@@ -63,7 +63,7 @@ class Recorder extends Component {
 
     render() {
         return (
-            <div>
+            <div className='container'>
                 {!this.state.recorded &&
                     <div>
                          <ziggeo></ziggeo>
