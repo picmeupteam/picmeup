@@ -31892,8 +31892,8 @@ var Recorder = function (_Component) {
         var _this = _possibleConstructorReturn(this, (Recorder.__proto__ || Object.getPrototypeOf(Recorder)).call(this));
 
         _this.state = {
-            videoToken: '',
-            recorded: false
+            recorded: false,
+            videoToken: ''
         };
         return _this;
     }
@@ -31903,10 +31903,11 @@ var Recorder = function (_Component) {
         value: function componentDidMount() {
             // When the component is mounted, grab a reference and add a DOM listener;
             console.log("outside handler");
-            var self = this;
             ZiggeoApi.Events.on("submitted", function (data) {
-                console.log("inside");
-                self.videoToken = data.video.token, self.setState({ recorded: true });
+                self.setState({
+                    recorded: true,
+                    videoToken: data.video.token
+                });
             });
         }
     }, {
@@ -31920,7 +31921,11 @@ var Recorder = function (_Component) {
                     null,
                     _react2.default.createElement('ziggeo', null)
                 ),
-                this.state.recorded && _react2.default.createElement('div', null)
+                this.state.recorded && _react2.default.createElement(
+                    'div',
+                    null,
+                    'ZiggeoApi.Videos.get(this.state.videoToken);'
+                )
             );
         }
     }]);
