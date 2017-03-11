@@ -15197,12 +15197,22 @@ var UserHome = function UserHome(props) {
 
   return _react2.default.createElement(
     'div',
-    null,
+    { className: 'landing' },
     _react2.default.createElement(
       'h3',
       null,
-      'Welcome, ',
+      'welcome, ',
       user.email
+    ),
+    _react2.default.createElement(
+      'button',
+      { type: 'button', className: 'btn btn-primary btn-lg' },
+      'create new'
+    ),
+    _react2.default.createElement(
+      'button',
+      { type: 'button', className: 'btn btn-secondary btn-lg' },
+      'view all'
     )
   );
 };
