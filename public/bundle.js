@@ -31877,6 +31877,8 @@ var _react2 = _interopRequireDefault(_react);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -31892,13 +31894,35 @@ var Recorder = function (_Component) {
         var _this = _possibleConstructorReturn(this, (Recorder.__proto__ || Object.getPrototypeOf(Recorder)).call(this));
 
         _this.state = {
-            recorded: false,
-            videoToken: ''
+            recorded: true,
+            videoToken: '',
+            videoTitle: '',
+            videoTags: ''
         };
+
+        _this.handleChange = _this.handleChange.bind(_this);
+        _this.handleSubmit = _this.handleSubmit.bind(_this);
         return _this;
     }
 
     _createClass(Recorder, [{
+        key: 'handleChange',
+        value: function handleChange(field) {
+            var _this2 = this;
+
+            return function (event) {
+                var value = event.target.value;
+
+                _this2.setState(_defineProperty({}, '' + field, value));
+            };
+        }
+    }, {
+        key: 'handleSubmit',
+        value: function handleSubmit(event) {
+            event.preventDefault();
+            console.log('submit was submitted! hahaha', this.state);
+        }
+    }, {
         key: 'componentDidMount',
         value: function componentDidMount() {
             // When the component is mounted, grab a reference and add a DOM listener;
@@ -31924,7 +31948,25 @@ var Recorder = function (_Component) {
                 this.state.recorded && _react2.default.createElement(
                     'div',
                     null,
-                    'ZiggeoApi.Videos.get(this.state.videoToken);'
+                    _react2.default.createElement(
+                        'form',
+                        { onSubmit: this.handleSubmit },
+                        _react2.default.createElement(
+                            'label',
+                            null,
+                            'Affirmation Video Title:',
+                            _react2.default.createElement('input', {
+                                type: 'text',
+                                onChange: this.handleChange('videoTitle')
+                            }),
+                            'Affirmation Video Tags:',
+                            _react2.default.createElement('input', {
+                                type: 'text',
+                                onChange: this.handleChange('videoTags')
+                            })
+                        ),
+                        _react2.default.createElement('input', { type: 'submit', value: 'Submit' })
+                    )
                 )
             );
         }

@@ -3,10 +3,31 @@ import React, { Component } from 'react';
 class Recorder extends Component {
     constructor() {
         super();
+
         this.state = {
-            recorded: false,
-            videoToken: ''
+            recorded: true,
+            videoToken: '',
+            videoTitle: '',
+            videoTags: ''
         };
+
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    handleChange(field) {
+        return event => {
+            const value = event.target.value;
+
+            this.setState({
+                [`${field}`]: value
+            });
+        }
+    }
+
+    handleSubmit(event) {
+        event.preventDefault();
+        console.log('submit was submitted! hahaha', this.state);
     }
 
 
@@ -31,7 +52,21 @@ class Recorder extends Component {
                 }
                 {this.state.recorded &&
                     <div>
-                        ZiggeoApi.Videos.get(this.state.videoToken);
+                        <form onSubmit={this.handleSubmit}>
+                            <label>
+                                Affirmation Video Title:
+                                    <input
+                                        type="text"
+                                        onChange={this.handleChange('videoTitle')}
+                                    />
+                                Affirmation Video Tags:
+                                    <input
+                                        type="text"
+                                        onChange={this.handleChange('videoTags')}
+                                    />
+                            </label>
+                            <input type="submit" value="Submit" />
+                        </form>
                     </div>
                 }
             </div>
