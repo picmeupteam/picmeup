@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 import axios from 'axios';
+import { Link } from 'react-router'
 
 // Video list component that takes each video it gets and make a video component for it
 
@@ -28,9 +29,10 @@ class VideoList extends Component {
     return (
       <div className='video-list'>
         <center>
-          <button className='btn new-btn'>
-            create new
-          </button>
+          <Link to='/record'>
+            <button className='btn new-btn'>create new</button>
+          </Link>
+          <br />
           <h2>your affirmations</h2>
           {this.state.videos && this.state.videos.map(function(video){
             return <Video key={video.token} singleVid={video} />
@@ -41,40 +43,27 @@ class VideoList extends Component {
   }
 }
 
-const styles = {
-  display: "inline-block"
-}
-
-// var embedding = ZiggeoApi.Embed.embed(
-//         "#replace_me", {
-//             width:640,
-//             height:480,
-//             video: "VIDEO_TOKEN"
-//     });
-
-const temp = [];
-
 const Video = ({ singleVid }) => {
 
   ZiggeoApi.Embed.embed(
-      `#video-${singleVid.token}`, {
-        width: 640,
-        height: 480,
-        responsive: false,
-        video: `${singleVid.token}`
-      })
+    `#video-${singleVid.token}`, {
+      width: 640,
+      height: 480,
+      responsive: false,
+      video: `${singleVid.token}`
+    }
+  )
+
+  const tags = singleVid.tags.map(tag => tag.name).join(', ');
 
   return (
     <div>
       <h3>{singleVid.title}</h3>
-      <div id={`video-${singleVid.token}`}></div>
+      <div id={`video-${singleVid.token}`} />
+      <p>{tags}</p>
       <br />
     </div>
   )
 }
-
-// <ziggeo
-//   ziggeo-video={singleVid.token}
-// />
 
 export default VideoList;
