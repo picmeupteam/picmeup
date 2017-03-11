@@ -20,6 +20,11 @@ const UserHome = props => {
           view all
         </button>
       </Link>
+      <Link to='/allplaylists'>
+        <button type="button" className="btn btn-secondary btn-lg">
+          playlists
+        </button>
+      </Link>
     </div>
   );
 }
