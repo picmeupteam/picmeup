@@ -156,7 +156,7 @@ class SingleVideo extends React.Component{
               <form onSubmit={this.handleTitle} className="input-group input-group-sm">
                 <input id='titleName' type="text" className="form-control"/>
                 <div className="input-group-btn">
-                  <button type="button" className="btn btn-primary">Change Title</button>
+                  <button type="submit" className="btn btn-primary">Change Title</button>
                 </div>
               </form>
               <h5>Add to Existing Playlist:</h5>
@@ -165,14 +165,14 @@ class SingleVideo extends React.Component{
                   {playlists && playlists.map(playlist => <option key={playlist.id} value={playlist.id}>{playlist.name}</option>)}
                 </select>
                 <div className="input-group-btn">
-                  <button type="button" className="btn btn-primary">Add</button>
+                  <button type="submit" className="btn btn-primary">Add</button>
                 </div>
               </form>
               <h5>Add to New Playlist:</h5>
               <form onSubmit={this.handleAddToNewPlaylist} className="input-group input-group-sm">
                 <input id='newPlaylistName' type="text" className="form-control"/>
                 <div className="input-group-btn">
-                  <button type="button" className="btn btn-primary">Add</button>
+                  <button type="submit" className="btn btn-primary">Add</button>
                 </div>
               </form>
               <h5>Remove from Playlist:</h5>
@@ -181,14 +181,14 @@ class SingleVideo extends React.Component{
                   {video && video.playlists.map(playlist => <option key={playlist.id} value={playlist.id}>{playlist.name}</option>)}
                 </select>
                 <div className="input-group-btn">
-                  <button type="button" className="btn btn-warning">Remove</button>
+                  <button type="submit" className="btn btn-warning">Remove</button>
                 </div>
               </form>
               <h5>Add Tag:</h5>
               <form onSubmit={this.handleAddTag} className="input-group input-group-sm">
                 <input id='newTagName' type="text" className="form-control"/>
                 <div className="input-group-btn">
-                  <button type="button" className="btn btn-primary">Add</button>
+                  <button type="submit" className="btn btn-primary">Add</button>
                 </div>
               </form>
               <h5>Remove Tag:</h5>
@@ -197,12 +197,12 @@ class SingleVideo extends React.Component{
                   {video && video.tags.map(tag => <option key={tag.id} value={tag.id}>{tag.name}</option>)}
                 </select>
                 <div className="input-group-btn">
-                  <button type="button" className="btn btn-warning">Remove</button>
+                  <button type="submit" className="btn btn-warning">Remove</button>
                 </div>
               </form>
               <h5>Delete Video:</h5>
               <form onSubmit={this.handleDelete} className="input-group input-group-sm">
-                <button type="button" className="btn btn-danger">Delete</button>
+                <button type="submit" className="btn btn-danger">Delete</button>
               </form>
             </div>
           </div>
